@@ -1,6 +1,7 @@
 {
   "name": "ember-scroll",
   "version": "0.0.1",
+  "license": "MIT",
   "dependencies": {
     "kelonye/ember": "*"
   },
