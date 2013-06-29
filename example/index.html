@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--
+    <link href='../public/public.css' rel='stylesheet' media='screen'>
+    -->
+  </head>
+  <body>
+
+    <script data-template-name='index' type='text/x-handlebars'>
+      <ul>
+      {{#each item in model}}
+      <li>{{item}}</li>
+      {{/each}}
+      </ul>
+    </script>
+
+    <script src='../public/public.js'></script>
+
+    <script type='text/javascript'>
+
+      var Mixin = require('ember-scroll');
+
+      var App = Em.Application.create();
+
+      App.IndexRoute = Em.Route.extend({
+        model: function() {
+          var items = [];
+
+          for(var i = 0; i < 100; i++)
+            items.pushObject(i);
+
+          return items;
+        },
+        events: {
+          onscroll: function() {
+            var items = this.modelFor('index'),
+                last  = items.get('lastObject');
+
+            for(var i = last + 1; i < last + 100; i++)
+              items.pushObject(i);
+          }
+        }
+      });
+
+      App.IndexView = Em.View.extend(Mixin);
+
+    </script>
+  </body>
+</html>

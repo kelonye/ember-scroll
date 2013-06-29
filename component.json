@@ -1,0 +1,11 @@
+{
+  "name": "ember-scroll",
+  "version": "0.0.1",
+  "dependencies": {
+    "kelonye/ember": "*"
+  },
+  "scripts": [
+    "index.js",
+    "lib/index.js"
+  ]
+}
