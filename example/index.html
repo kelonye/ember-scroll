@@ -26,19 +26,24 @@
       App.IndexRoute = Em.Route.extend({
         model: function() {
           var items = [];
-
-          for(var i = 0; i < 100; i++)
-            items.pushObject(i);
-
+          var n = 0;
+          while (++n<100){
+            (function(n){
+              items.pushObject(n);
+            })(n);
+          }
           return items;
         },
         events: {
           onscroll: function() {
-            var items = this.modelFor('index'),
-                last  = items.get('lastObject');
-
-            for(var i = last + 1; i < last + 100; i++)
-              items.pushObject(i);
+            var items = this.modelFor('index');
+            var last  = items.get('lastObject');
+            var n = last;
+            while (++n<last+100){
+              (function(n){
+                items.pushObject(n);
+              })(n);
+            }
           }
         }
       });
