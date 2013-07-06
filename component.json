@@ -8,5 +8,5 @@
   "main": "lib/index.js",
   "scripts": [
     "lib/index.js"
-  ],
+  ]
 }
