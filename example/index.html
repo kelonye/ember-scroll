@@ -27,10 +27,11 @@
         model: function() {
           var items = [];
           var n = 0;
-          while (++n<100){
+          while (n<100){
             (function(n){
               items.pushObject(n);
             })(n);
+            n++;
           }
           return items;
         },

@@ -11,7 +11,10 @@ components:
 public:
 	@$(component) build -n $@ -o $@
 
+example: default
+	@xdg-open example/index.html
+
 clean:
 	@rm -rf public
 
-.PHONY: clean
+.PHONY: clean example

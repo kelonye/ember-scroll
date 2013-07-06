@@ -21,6 +21,10 @@ Use
 
 ```
 
+Example
+---
+
+    $ make example
 
 Credit
 ---
