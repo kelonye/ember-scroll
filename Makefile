@@ -8,7 +8,7 @@ node_modules:
 components:
 	@$(component) install
 
-public:
+public: lib/index.js
 	@$(component) build -n $@ -o $@
 
 example: default
