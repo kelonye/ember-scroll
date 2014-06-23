@@ -1,8 +1,7 @@
 {
   "name": "ember-scroll",
-  "version": "0.0.4",
-  "license": "MIT",
+  "private": true,
   "dependencies": {
-    "component-hooks": "*"
+    "component-hooks": "^0.2.3"
   }
 }
