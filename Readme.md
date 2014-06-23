@@ -26,11 +26,6 @@ Example
 
     $ make example
 
-Credit
----
-
-@nerdyworm's [ember-infinite-scroll](https://github.com/nerdyworm/ember-infinite-scroll)
-
 License
 ---
 
