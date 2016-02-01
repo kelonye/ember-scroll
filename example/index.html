@@ -16,10 +16,14 @@
   <body>
 
     <script data-template-name='index' type='text/x-handlebars'>
+      {{news-feed}}
+    </script>
+
+    <script data-template-name='components/news-feed' type='text/x-handlebars'>
       <ul>
-      {{#each item in model}}
-      <li>{{item}}</li>
-      {{/each}}
+        {{#each item in items}}
+          <li>{{item}}</li>
+        {{/each}}
       </ul>
       <button>load more</button>
       <footer>
@@ -34,8 +38,11 @@
 
       var App = Em.Application.create();
 
-      App.IndexRoute = Em.Route.extend({
-        model: function() {
+      App.NewsFeedComponent = Em.Component.extend(Mixin, {
+
+        optionScrollElement: 'button',
+
+        setup: function(){
           var items = [];
           var n = 0;
           while (n<100){
@@ -44,11 +51,14 @@
             })(n);
             n++;
           }
-          return items;
-        },
+          this.set('items', items);
+        }.on('didInsertElement'),
+
         actions: {
-          onscroll: function() {
-            var items = this.modelFor('index');
+
+          onscroll: function(){
+
+            var items = this.get('items');
             var last  = items.get('lastObject');
             var n = last;
             while (++n<last+100){
@@ -56,12 +66,10 @@
                 items.pushObject(n);
               })(n);
             }
-          }
-        }
-      });
+          },
 
-      App.IndexView = Em.View.extend(Mixin, {
-        optionScrollElement: 'button'
+        },
+
       });
 
     </script>
